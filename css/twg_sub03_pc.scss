@@ -1,0 +1,571 @@
+html{
+    font-size: 3vw;
+    body{
+        font-size: 0.7vw;
+        overflow-x: hidden;
+    }
+}
+
+
+//변수선언
+$lh: #{'min(40px,1rem)'};
+$lh2:#{'min(80px,2rem)'};
+
+
+//그리드 적용
+@mixin grid($dg) {
+    @if($dg=='mob'){
+        width: 90%;
+        max-width: 700px;
+    }
+    @else{
+        width: 80%;
+        max-width: 1080px;
+    }
+    margin: 0 auto;
+}
+
+
+//이미지
+@mixin bg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+//플랙스
+@mixin fl {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+//폰트적용
+@mixin ft($fontname,$url){
+    @font-face {
+        font-family: '#{$fontname}';
+        src: url('./fonts/#{$url}') format('truetype');
+    }
+}
+@include ft(xe,'xeicon.ttf');
+@include ft(ptr,'Pretendard-Regular.ttf');
+@include ft(ptm,'Pretendard-Medium.ttf');
+@include ft(ptl,'Pretendard-Light.ttf');
+@include ft(ptsb,'Pretendard-SemiBold.ttf');
+@include ft(hlb,'HallymMjo-Bold.ttf');
+@include ft(hlr,'HallymMjo-Regular.ttf');
+
+
+//헤더
+.hdrWrap{
+    header{
+        @include grid('pc');
+        @include fl;
+        line-height: $lh2;
+        .logo{
+            width: calc(100% / 12);
+            height: $lh2;
+            @include bg;
+            background-image: url('../images/index_image/logo.png');
+            margin-left: $lh;
+            cursor: pointer;
+            a{
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .menu{
+            @include fl;
+            font-family: 'xe';
+            font-size: #{'min(26px,2.6em)'};
+            color: #333;
+            li{
+                margin-left: #{'min(20px,0.5rem)'};
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+//메뉴박스
+.memuBoxWrap{
+    background-color: #fff;
+    .menuBox{
+        @include grid('pc');
+        line-height: $lh2;
+        .menu{
+            @include fl;
+            width: calc(100% / 12 * 3.2);
+            margin-left: auto;
+            font-family: 'ptr';
+            font-size: #{'min(22px,2.2em)'};
+            color: #333;
+            li{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+//메인
+.mnWrap{
+    main{
+        @include grid('pc');
+        color: #333;
+        text-align: center;
+        h2{
+            margin-top: $lh2;
+            font-family: 'hlr';
+            font-size: #{'min(48px,4.8em)'};
+            line-height: #{'min(60px,1.5rem)'};
+        }
+        h5{
+            font-family: 'ptr';
+            font-size: #{'min(18px,1.8em)'};
+            line-height: $lh;
+        }
+        .image{
+            margin-top: $lh;
+            height: #{'min(160px,4rem)'};
+            @include bg;
+            background-image: url('../images/sub03_image/sub03_main.jpg');
+        }
+
+    } 
+}
+
+//컨텐츠
+.cntWrap{
+    margin-top: $lh2;
+    .content{
+        @include grid('pc');
+        &.cnt01{
+            section{
+                .artTop{
+                    article{
+                        @include fl;
+                        .image{
+                            width: calc(100% / 12 * 4.2);
+                            margin: 0 auto;
+                            height: #{'min(360px,9rem)'};
+                            @include bg;
+                            background-image: url('../images/sub03_image/sub03_cnt01_01.jpg');
+                        }
+                        .texts{
+                            width: calc(100% / 12 * 6);
+                            color: #222;
+                            text-align: center;
+                            h4{
+                                font-family: 'ptm';
+                                font-size: #{'min(18px,1.8em)'};
+                                line-height: $lh;
+                            }
+                            h3{
+                                font-family: 'ptsb';
+                                font-size: #{'min(34px,3.4em)'};
+                                line-height: #{'min(30px,0.75rem)'};
+                            }
+                            p{
+                                font-family: 'ptr';
+                                font-size: #{'min(18px,1.8em)'};
+                                margin-top: #{'min(30px,0.75rem)'};
+                                line-height: #{'min(20px,0.5rem)'};
+                                height: $lh;
+                                overflow: hidden;
+                            }
+                            .txtnbs{
+                                margin-top: $lh;
+                                @include fl;
+                                li{
+                                    width: calc(100% / 3 - 10px);
+                                    text-align: left;
+                                    font-family: 'ptm';
+                                    font-size: #{'min(18px,1.8em)'};
+                                    color: #333;
+                                    line-height: #{'min(20px,0.5rem)'};
+                                }
+                            }
+                            .stGroup{
+                                @include fl;
+                                select{
+                                    width: calc(100% / 6 * 2 - 10px);
+                                    height: #{'min(30px,0.75rem)'};
+
+                                }
+                            }
+                            h5{
+                                margin-top: $lh;
+                                font-family: 'ptm';
+                                font-size: #{'min(24px,2.4em)'};
+                                line-height: $lh;
+                                span{
+                                    color:#3e5807;
+                                }
+                            }
+                        }
+                    }
+                    &::after{
+                        content: '';
+                        display: block;
+                        margin-top: $lh;
+                        height: 1px;
+                        background-color: #ccc;
+                    }
+                }
+                .artBtm{
+                    margin-top: $lh2;
+                    position: relative;
+                    .btns{
+                        width: calc(100% / 12);
+                        margin-left: auto;
+                        margin-right: 10px;
+                        @include fl;
+                        .btn{
+                            border: 1px solid #ccc;
+                            color: #ccc;
+                            cursor: pointer;
+                            i{
+                                font-family: 'xe';
+                                font-size: #{'min(36px,3.6em)'};
+                            }
+                            &:hover{
+                                background-color: #fc0;
+                                color: #fff;
+                                border: none;
+                            }
+                        }
+                    }
+                    .artView{
+                        margin-top: #{'min(10px,0.25rem)'};
+                        width: 100%;
+                        overflow: hidden;
+                        .artGroup{
+                            @include fl;
+                            width: 200%;
+                            article{
+                                width: calc(100% / 3 - 20px);
+                                margin: 0 10px;
+                                border: 1px solid #ccc;
+                                .image{
+                                    margin-top: $lh;
+                                    @include bg;
+                                    background-size: contain;
+                                    height: #{'min(240px,6rem)'};
+                                    @for $i from 1 through 6 {
+                                        &.i#{$i}{
+                                            background-image: url('../images/sub03_image/sub03_cnt01_btm_0#{$i}.jpg');
+                                        }
+                                    }
+                                }
+                                .texts{
+                                    text-align: center;
+                                    color: #222;
+                                    h3{
+                                        font-family: 'ptsb';
+                                        font-size: #{'min(22px,2.2em)'};
+                                        line-height: $lh;
+
+                                    }
+                                    h5{
+                                        font-family: 'ptm';
+                                        font-size: #{'min(16px,1.6em)'};
+                                        line-height: #{'min(20px,0.5rem)'};
+                                    }
+                                    p{
+                                        margin-top: #{'min(20px,0.5rem)'};
+                                        margin-bottom: $lh;
+                                        font-family: 'ptr';
+                                        font-size: #{'min(14px,1.4em)'};
+                                        line-height: #{'min(20px,0.5rem)'};
+                                        height: $lh;
+                                        overflow: hidden;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &::after{
+                content: '';
+                display: block;
+                margin-top: $lh2;
+                height: 1px;
+                background-color: #ccc;
+            }
+        }
+        &.cnt02{
+            header{
+                @include fl;
+                .hdrLeft{
+                    h2{
+                        font-family: 'hlr';
+                        font-size: #{'min(55px,5.5em)'};
+                        color: #3e5807;
+                        line-height: $lh2;
+                    }
+                    h5{
+                        font-family: 'ptr';
+                        font-size: #{'min(30px,3em)'};
+                        color: #333;
+                        line-height: $lh;
+                    }
+                }
+                .hdrRight{
+                    margin-top: #{'min(120px,3rem)'};
+                    width: calc(100% / 12 * 3);
+                    text-align: right;
+                    h5{
+                        font-family: 'ptr';
+                        font-size: #{'min(22px,2.2em)'};
+                        color: #333;
+                        line-height: #{'min(30px,0.75rem)'};
+                    }
+                }
+            }
+            section{
+                position: relative;
+                article{
+                    margin-top: #{'min(10px,0.25rem)'};
+                    .image{
+                        @include bg;
+                        &.i1{
+                            height: #{'min(465px,11.6rem)'};
+                            background-image: url('../images/sub03_image/sub03_cnt02_01.jpg'); 
+                        }
+                    }
+                    .texts{
+                        margin-top: $lh;
+                        margin-left: $lh;
+                        line-height: $lh;
+                        h3{
+                            font-family: 'hlr';
+                            font-size: #{'min(36px,3.6em)'};
+                            color: #333;
+                        }
+                        p{
+                            margin-top: #{'min(10px,0.25rem)'};
+                            font-family: 'ptr';
+                            font-size: #{'min(20px,2em)'};
+                            line-height: #{'min(30px,0.75rem)'};
+                            color: #333;
+                        }
+                    }
+                    &:nth-child(2){
+                        position: absolute;
+                        left: 0; right: 0;
+                        margin: auto;
+                        top: 0;
+                        z-index: -1;
+                        @include fl;
+                        .image{
+                            &.i2{
+                                margin-top: #{'min(400px,10rem)'};
+                                width: calc((100vw - 1080px) / 2.3 + 0%);
+                                margin-left: calc((100vw - 1080px) / -2);
+                                .ovrGrid{
+                                    @include bg;
+                                    background-position: right;
+                                    height: #{'min(280px,7rem)'};
+                                    background-image: url('../images/sub03_image/sub03_cnt02_02.jpg'); 
+                                }
+                            }
+                            &.i3{
+                                margin-top: #{'min(200px,5rem)'};
+                                width: calc(100% / 12);
+                                .ovrGrid{
+                                    @include bg;
+                                    width: calc((100vw - 1080px) / 2 + 100%);
+                                    min-width: calc((100vw - 80vw) / 2 + 100%);
+                                    height: #{'min(440px,11rem)'};
+                                    background-image: url('../images/sub03_image/sub03_cnt02_03.jpg');
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.cnt03{
+            margin-top: $lh2;
+            header{
+                @include fl;
+                .hdrLeft{
+                    margin-top: #{'min(160px,4rem)'};
+                    h5{
+                        font-family: 'ptr';
+                        font-size: #{'min(22px,2.2em)'};
+                        color: #333;
+                        line-height: $lh;
+                    }
+                }
+                .hdrRight{
+                    width: calc(100% / 12 * 4);
+                    margin-left: auto;
+                    text-align: center;
+                    h2{
+                        font-family: 'hlr';
+                        font-size: #{'min(55px,5.5em)'};
+                        color: #3e5807;
+                        line-height: $lh2;
+                    }
+                    h5{
+                        font-family: 'ptr';
+                        font-size: #{'min(30px,3em)'};
+                        color: #333;
+                        line-height: $lh;
+                    }
+                }
+            }
+            section{
+                article{
+                    .image{
+                        @include bg;
+                        height: #{'min(480px,12rem)'};
+                        background-image: url('../images/sub03_image/sub03_cnt03_01.jpg');
+                    }
+                    .texts{
+                        margin-top: $lh;
+                        line-height: $lh;
+                        text-align: center;
+                        h3{
+                            font-family: 'hlr';
+                            font-size: #{'min(36px,3.6em)'};
+                            color: #333;
+                        }
+                        p{
+                            margin-top: #{'min(30px,0.75rem)'};
+                            font-family: 'ptr';
+                            font-size: #{'min(20px,2em)'};
+                            color: #333;
+                            line-height: #{'min(30px,0.75rem)'};
+                            height: #{'min(200px,5rem)'};
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+            &::after{
+                content: '';
+                display: block;
+                margin-top: $lh2;
+                height: 1px;
+                background-color: #ccc;
+            }
+        }
+        &.cnt04{
+            header{
+                color: #333;
+                text-align: center;
+                h2{
+                    font-family: 'hlr';
+                    font-size: #{'min(48px,4.8em)'};
+                    line-height: $lh2;
+                }
+                h5{
+                    font-family: 'ptr';
+                    font-size: #{'min(18px,1.8em)'};
+                    line-height: #{'min(20px,0.5rem)'};
+                }
+            }
+            section{
+                margin-top: $lh;
+                @include fl;
+                article{
+                    position: relative;
+                    width: calc(100% / 3 - 10px);
+                    cursor: pointer;
+                    .image{
+                        @include bg;
+                        height: #{'min(440px,11rem)'};
+                        &.i1{
+                            background-image: url('../images/sub03_image/sub03_cnt04_01.jpg');
+                        }
+                        &.i2{
+                            background-image: url('../images/sub03_image/sub03_cnt04_02.jpg');
+                        }
+                        &.i3{
+                            background-image: url('../images/sub03_image/sub03_cnt04_03.jpg');
+                        }
+                    }
+                    .texts{
+                        position: absolute;
+                        left: 0; right: 0;
+                        margin: auto;
+                        top: #{'min(280px,7rem)'};
+                        line-height: $lh;
+                        font-family: 'hlr';
+                        color: #666;
+                        text-align: center;
+                        h5{
+                            font-size: #{'min(24px,2.4em)'};
+                        }
+                        h3{
+                            font-size: #{'min(30px,3em)'};
+                            color: #333;
+                        }
+                        h4{
+                            font-family: 'ptr';
+                            font-size: #{'min(18px,1.8em)'};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//푸터
+.ftrWrap{
+    margin-top: $lh;
+    footer{
+        @include grid('pc');
+        @include fl;
+        padding: $lh2 0;
+        .ftrLeft{
+            width: calc(100% / 12 * 6.5);
+            display: flex;
+            .logo{
+                width: calc(100% / 6.5);
+                @include bg;
+                height: $lh2;
+                background-image: url('../images/index_image/logo.png');
+            }
+            .info{
+                width: calc(100% / 6.5 * 5);
+                margin-left: $lh;
+                margin-top: #{'min(20px,0.5rem)'};
+                font-family: 'ptr';
+                font-size: #{'min(16px,1.6em)'};
+                color: #333;
+                line-height: #{'min(25px,0.6rem)'};
+                h3{
+                    span{
+                        margin-left: #{'min(20px,0.5rem)'};
+                    }
+                }
+            }
+        }
+        .ftrRight{
+            .sns{
+                @include fl;
+                justify-content: end;
+                font-family: 'xe';
+                font-size: #{'min(36px,3.6em)'};
+                color: #333;
+                line-height: $lh;
+                li{
+                    margin-left: #{'min(20px,0.5rem)'};
+                }
+            }
+            h5{
+                font-family: 'ptl';
+                font-size: #{'min(16px,1.6em)'};
+                color: #333;
+                line-height: $lh;
+            }
+        }
+    }
+}

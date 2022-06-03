@@ -1,0 +1,845 @@
+html{
+    font-size: 3vw;
+    body{
+        font-size: 0.7vw;
+        overflow-x: hidden;
+    }
+}
+
+
+//변수선언
+$lh: #{'min(40px,1rem)'};
+$lh2:#{'min(80px,2rem)'};
+
+
+//그리드 적용
+@mixin grid($dg) {
+    @if($dg=='mob'){
+        width: 90%;
+        max-width: 700px;
+    }
+    @else{
+        width: 80%;
+        max-width: 1080px;
+    }
+    margin: 0 auto;
+}
+
+
+//이미지
+@mixin bg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+//플랙스
+@mixin fl {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+//폰트적용
+@mixin ft($fontname,$url){
+    @font-face {
+        font-family: '#{$fontname}';
+        src: url('./fonts/#{$url}') format('truetype');
+    }
+}
+@include ft(xe,'xeicon.ttf');
+@include ft(ptr,'Pretendard-Regular.ttf');
+@include ft(ptm,'Pretendard-Medium.ttf');
+@include ft(ptl,'Pretendard-Light.ttf');
+@include ft(ptsb,'Pretendard-SemiBold.ttf');
+@include ft(hlb,'HallymMjo-Bold.ttf');
+@include ft(hlr,'HallymMjo-Regular.ttf');
+
+
+//헤더
+.hdrWrap{
+    background-color: #f1f2f4;
+    header{
+        @include grid('pc');
+        @include fl;
+        line-height: $lh2;
+        .logo{
+            width: calc(100% / 12);
+            height: $lh2;
+            @include bg;
+            background-image: url('../images/index_image/logo.png');
+            margin-left: $lh;
+            cursor: pointer;
+            a{
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .menu{
+            @include fl;
+            font-family: 'xe';
+            font-size: #{'min(26px,2.6em)'};
+            color: #333;
+            li{
+                margin-left: #{'min(20px,0.5rem)'};
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+//메뉴박스
+.memuBoxWrap{
+    background-color: #fff;
+    .menuBox{
+        @include grid('pc');
+        line-height: $lh2;
+        .menu{
+            @include fl;
+            width: calc(100% / 12 * 3.2);
+            margin-left: auto;
+            font-family: 'ptr';
+            font-size: #{'min(22px,2.2em)'};
+            color: #333;
+            li{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+//메인
+.mnWrap{
+    main{
+        position: relative;
+        .mnView{
+            width: 100%;
+            overflow: hidden;
+            .mnGroup{
+                width: 300%;
+                @include fl;
+                .mn{
+                    width: calc(100% / 3);
+                    position: relative;
+                    .image{
+                        height: #{'min(640px,16rem)'};
+                        @include bg;
+                        &.i1{
+                            background-image: url('../images/index_image/main_1.jpg');
+                        }
+                        &.i2{
+                            background-image: url('../images/index_image/main_1.jpg');
+                        }
+                        &.i3{
+                            background-image: url('../images/index_image/main_1.jpg');
+                        }
+                    }
+                    .texts{
+                        @include grid('pc');
+                        position: absolute;
+                        left: 0; right: 0;
+                        margin: auto;
+                        top: #{'min(210px,5.25rem)'};
+                        h3{
+                            width: calc(100% / 12 * 6.6);
+                            margin-left:auto;
+                            text-align: center;
+                            font-family: 'ptsb';
+                            font-size: #{'min(36px,3.6em)'};
+                            line-height: $lh;
+                            color: #333;
+                        }
+                        .dot{
+                            display: flex;
+                            width: calc(100% / 12 * 5);
+                            margin-left:auto;
+                            margin-right: #{'min(120px,3rem)'};
+                            li{
+                                margin-right: #{'min(30px,0.75rem)'};
+                                font-size: #{'min(2px,2em)'};
+                                color: #333;
+                                line-height: #{'min(20px,0.5rem)'};
+                            }
+                        }
+                        h2{
+                            width: calc(100% / 12 * 6.6);
+                            margin-left:auto;
+                            text-align: center;
+                            font-family: 'ptl';
+                            font-size: #{'min(48px,4.8em)'};
+                            line-height: #{'min(60px,1.5rem)'};
+                            color: #333;
+                        }
+                        h5{
+                            width: calc(100% / 12 * 6.6);
+                            margin-left:auto;
+                            text-align: center;
+                            font-family: 'ptr';
+                            font-size: #{'min(20px,2.5em)'};
+                            line-height: #{'min(60px,1.5rem)'};
+                            color: #333;
+                        }
+                    }
+                }
+            }
+        }
+        .mts{
+            @include grid('pc');
+            position: absolute;
+            left: 0; right: 0;
+            margin: auto;
+            top: #{'min(400px,10rem)'};
+            .vwbtn{
+                margin-left: #{'min(700px,17.5rem)'};
+                font-family: 'ptr';
+                font-size: #{'min(18px,1.8em)'};
+                line-height: $lh;
+                height: $lh;
+                color: #666;
+                width: calc(100% / 12 * 1.9);
+                border: 1px solid #999;
+                text-align: center;
+                cursor: pointer;
+            }
+            .control{
+                @include fl;
+                margin-top: #{'min(80px,2rem)'};
+                .btns{
+                    @include fl;
+                    width: calc(100% / 12 * 2.2);
+                    margin-left: auto;
+                    margin-right: #{'min(40px,1rem)'};
+                    font-family: 'xe';
+                    font-size: #{'min(27px,2.7em)'};
+                    line-height: $lh;
+                    color: #666;
+                    li{
+                        margin: 0 10px;
+                        cursor: pointer;
+                    }
+                }
+                .bar{
+                    width: calc(100% / 12 * 3);
+                    margin-right: $lh;
+                    height: 5px;
+                    background-color: #ccc;
+                    margin-top: 18px;
+                    .barbg{
+                        width: 33%;
+                        height: 5px;
+                        background-color: #333;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//배너
+.bnrWrap{
+    .banner{
+        @include grid('pc');
+        &.bnr01{
+            @include fl;
+            .bnrLeft{
+                width: 50%;
+                position: relative;
+                .image{
+                    width: 100%;
+                    direction: rtl;
+                    .ovrGrid{
+                        width: calc((100vw - 1080px) / 2 + 100%);
+                        min-width: calc((100vw - 80vw) / 2 + 100%);
+                        height: #{'min(520px,13rem)'};
+                        @include bg;
+                        background-image: url('../images/index_image/banner_bg01.jpg');
+                    }
+                }
+                .texts{
+                    position: absolute;
+                    top: #{'min(120px,3rem)'};
+                    color: #333;
+                    h5{
+                        font-family: 'ptm';
+                        font-size: #{'min(14px,1.4em)'};
+                        line-height: $lh;
+                    }
+                    h2{
+                        font-family: 'ptl';
+                        font-size: #{'min(48px,4.8em)'};
+                        line-height: #{'min(55px,1.4rem)'};
+                        span{
+                            font-family: 'ptm';
+                        }
+                    }
+                    p{
+                        margin-top: #{'min(40px,1rem)'} ;
+                        font-family: 'ptm';
+                        font-size: #{'min(18px,1.8em)'};
+                        line-height: #{'min(20px,0.5rem)'};
+                        height: #{'min(60px,1.5rem)'};
+                    }
+                    .btn{
+                        margin-top: #{'min(60px,1.5rem)'};
+                        margin-left: #{'min(160px,4rem)'};
+                        width: calc(100% / 6 * 3);
+                        font-family: 'ptr';
+                        font-size: #{'min(18px,1.8em)'};
+                        line-height: $lh;
+                        text-align: center;
+                        border: 1px solid #999;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .bnrRight{
+                width: 50%;
+                position: relative;
+                .image{
+                    width: 100%;
+                    .ovrGrid{
+                        width: calc((100vw - 1080px) / 2 + 100%);
+                        min-width: calc((100vw - 80vw) / 2 + 100%);
+                        height: #{'min(520px,13rem)'};
+                        @include bg;
+                        background-image: url('../images/index_image/banner_bg02.jpg');
+                    }
+                }
+                .texts{
+                    position: absolute;
+                    top: #{'min(120px,3rem)'};
+                    right: 0;
+                    color: #fff;
+                    text-align: right;
+                    h5{
+                        font-family: 'ptm';
+                        font-size: #{'min(14px,1.4em)'};
+                        line-height: $lh;
+                    }
+                    h2{
+                        font-family: 'ptl';
+                        font-size: #{'min(48px,4.8em)'};
+                        line-height: #{'min(55px,1.4rem)'};
+                        span{
+                            font-family: 'ptm';
+                        }
+                    }
+                    p{
+                        margin-top: #{'min(40px,1rem)'} ;
+                        font-family: 'ptl';
+                        font-size: #{'min(18px,1.8em)'};
+                        line-height: #{'min(20px,0.5rem)'};
+                        height: #{'min(60px,1.5rem)'};
+                    }
+                    .btn{
+                        margin-top: #{'min(60px,1.5rem)'};
+                        margin-left: #{'min(80px,2rem)'};
+                        width: calc(100% / 6 * 3);
+                        font-family: 'ptr';
+                        font-size: #{'min(18px,1.8em)'};
+                        line-height: $lh;
+                        text-align: center;
+                        border: 1px solid #999;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        &.bnr02{
+            @include grid('pc');
+            display: flex;
+            .bnrLeft{
+                position: relative;
+                width: 50%;
+                direction: rtl;
+                .ovrGrid{
+                    @include bg;
+                    background-position: right;
+                    width: calc((100vw - 1080px) / 2 + 100%);
+                    min-width: calc((100vw - 80vw) / 2 + 100%);
+                    margin-left: calc((100vw - 1080px) / -2);
+                    height: #{'min(560px,14rem)'};
+                    background-image: url('../images/index_image/banner02_bg01.jpg');
+                }
+                .texts{
+                    position: absolute;
+                    top: 220px; left: calc((100vw - 1080px) / -5); 
+                    direction: ltr;
+                    display: flex;
+                    color: #fff;
+                    h2{
+                        font-family: 'ptsb';
+                        font-size: #{'min(48px,4.8em)'};
+                        line-height: #{'min(50px,1.25rem)'};
+                        text-align: right;
+                    }
+                    h5{
+                        margin-top: #{'min(50px,1.25rem)'};
+                        font-family: 'ptr';
+                        font-size: #{'min(20px,2em)'};
+                        line-height: #{'min(60px,1.5rem)'};
+                    }
+                }
+            }
+            .bnrRight{
+                position: relative;
+                width: 50%;
+                .ovrGrid{
+                    @include bg;
+                    background-position: left;
+                    width: calc((100vw - 1080px) / 2 + 100%);
+                    min-width: calc((100vw - 80vw) / 2 + 100%);
+                    height: #{'min(560px,14rem)'};
+                    background-image: url('../images/index_image/banner02_bg02.jpg');
+                }
+                .texts{
+                    position: absolute;
+                    top: #{'min(100px,2.5rem)'}; left: #{'min(330px,8.25rem)'};
+                    display: flex;
+                    color: #222;
+                    h2{
+                        font-family: 'ptsb';
+                        font-size: #{'min(48px,4.8em)'};
+                        line-height: #{'min(50px,3.6rem)'};
+                        text-align: center;
+                    }
+                    h5{
+                        margin-top: #{'min(145px,3.75rem)'};
+                        font-family: 'ptr';
+                        font-size: #{'min(20px,2em)'};
+                        line-height: #{'min(20px,0.5rem)'};
+                        margin-left: #{'min(10px,0.25rem)'};
+                    }
+                }
+            }
+        }
+    }
+}
+
+//컨텐츠
+.cntWrap{
+    &.cntWrap01{
+        height: #{'min(1920px,48rem)'};
+        @include bg;
+        background-image: url('../images/index_image/cnt01_bg.jpg');
+        .content{
+            &.cnt01{
+                .artTop{
+                    article{
+                        position: relative;
+                        .texts{
+                            @include grid('pc');
+                            h3{
+                                padding-top: #{'min(200px,5rem)'};
+                                margin-left: #{'min(430px,10.75rem)'};
+                                font-family: 'ptm';
+                                font-size: #{'min(72px,7.2em)'};
+                                color: #333;
+                                span{
+                                    color: #3e5807;
+                                }
+                            }
+                            p{
+                                width: calc(100% / 12 * 8);
+                                margin-left: auto;
+                                margin-right: #{'min(30px,0.75rem)'};
+                                padding-top: #{'min(40px,1rem)'};
+                                font-family: 'ptm';
+                                font-size: #{'min(28px,2.8em)'};
+                                color: #333;
+                                text-align: center;
+                            }
+                        }
+                        .image{
+                            position: absolute;
+                            left: 0; right: 0;
+                            margin: auto;
+                            top: 0;
+                            width: 100%;
+                            @include fl;
+                            @include bg;
+                            &.i1{
+                                margin-top: $lh2;
+                                margin-left: 0;
+                                width: #{'min(600px,15rem)'};
+                                height: #{'min(550px,13.75rem)'};
+                                background-image: url('../images/index_image/cnt01_fat.png');
+                            }
+                            &.i2{
+                                margin-top: #{'min(360px,9rem)'};
+                                margin-right: 0;
+                                width: #{'min(560px,14rem)'};
+                                height: #{'min(550px,13.75rem)'};
+                                background-image: url('../images/index_image/cnt01_leaf.png');
+                            }
+                        }
+                    }
+                }
+                .artMid{
+                    position: relative;
+                    .texts{
+                        @include grid('pc');
+                        h3{
+                            margin-top: #{'min(360px,9rem)'};
+                            padding-left: 0;
+                            font-family: 'ptm';
+                            font-size: #{'min(72px,7.2em)'};
+                            color: #333;
+                            span{
+                                margin-left: #{'min(160px,4rem)'};
+                                color: #3e5807;
+                            }
+                        }
+                    }
+                    .icons{
+                        @include grid('pc');
+                        display: flex;
+                        margin-top: #{'min(60px,1.5rem)'};
+                        .tem{
+                            width: calc(100% / 12);
+                            margin-left: #{'min(100px,2.5rem)'};
+                            margin-right: #{'min(80px,2rem)'};
+                            .image{
+                                @include bg;
+                                cursor: pointer;
+                                &.i01{
+                                    height: #{'min(120px,3rem)'};
+                                    background-image: url('../images/index_image/cnt01_icon_tem.png');
+                                    &:hover{
+                                        background-image: url('../images/index_image/cnt01_icon_tem_1.png');
+                                    }
+                                }
+                            }
+                            h5{
+                                font-family: 'ptm';
+                                font-size: #{'min(28px,2.8em)'};
+                                color: #666;
+                                text-align: center;
+                                margin-top: #{'min(20px,0.5rem)'};
+                            }
+                        }
+                        .cup{
+                            width: calc(100% / 12 * 1.2);
+                            margin-right: #{'min(80px,2rem)'};
+                            .image{
+                                @include bg;
+                                cursor: pointer;
+                                &.i02{
+                                    height: #{'min(110px,2.75rem)'};
+                                    background-image: url('../images/index_image/cnt01_icon_cup.png');
+                                    &:hover{
+                                        background-image: url('../images/index_image/cnt01_icon_cup_1.png');
+                                    }
+                                }
+                            }
+                            h5{
+                                font-family: 'ptm';
+                                font-size: #{'min(28px,2.8em)'};
+                                color: #666;
+                                text-align: center;
+                                margin-top: #{'min(30px,0.75rem)'};
+                            }
+                        }
+                        .time{
+                            width: calc(100% / 12 * 1.2);
+                            .image{
+                                @include bg;
+                                cursor: pointer;
+                                &.i03{
+                                    height: #{'min(110px,2.75rem)'};
+                                    background-image: url('../images/index_image/cnt01_icon_clock.png');
+                                    &:hover{
+                                        background-image: url('../images/index_image/cnt01_icon_clock_1.png');
+                                    }
+                                }
+                            }
+                            h5{
+                                font-family: 'ptm';
+                                font-size: #{'min(28px,2.8em)'};
+                                color: #666;
+                                text-align: center;
+                                margin-top: #{'min(30px,0.75rem)'};
+                            }
+                        }
+                    }
+                    .image{
+                        &.i3{
+                            width: #{'min(680px,18rem)'};
+                            position: absolute;
+                            right: 0;
+                            top: 200px;
+                            @include bg;
+                            height: #{'min(440px,11rem)'};
+                            background-image: url('../images/index_image/cnt01_teacup.png');
+                        }
+                    }
+                }
+                .artBTm{
+                    position: relative;
+                    .texts{
+                        @include grid('pc');
+                        text-align: center;
+                        h3{
+                            font-family: 'hlb';
+                            font-size: #{'min(72px,7.2em)'};
+                            color: #f5ba08;
+                            margin-top: #{'min(220px,5.5rem)'};
+                            span{
+                                margin-left: #{'min(300px,7.5rem)'};
+                            }
+                        }
+                        p{
+                            font-family: 'ptr';
+                            font-size: #{'min(24px,2.4em)'};
+                            color: #282828;
+                            line-height: #{'min(30px,0.75rem)'};
+                            margin-top: #{'min(40px,1rem)'};
+                            margin-left: $lh2;
+                        }
+                    }
+                    .image{
+                        position: absolute;
+                        left: 0; right: 0;
+                        margin: auto;
+                        top: #{'min(-20px,-0.5rem)'};
+                        @include fl;
+                        @include bg;
+                        height: #{'min(480px,12rem)'};
+                        &.i4{
+                            margin-left: 0;
+                            width: #{'min(690px,17.25rem)'};
+                            background-image: url('../images/index_image/cnt01_tea.png');
+                        }
+                        &.i5{
+                            margin-right: 0;
+                            margin-top: #{'min(70px,1.75rem)'};
+                            width: #{'min(380px,9.5rem)'};
+                            background-image: url('../images/index_image/cnt01_lineleaf.png');
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .content{
+        &.cnt02{
+            @include grid('pc');
+            margin-top: $lh2;
+            section{
+                .artTop{
+                    article{
+                        @include fl;
+                        .texts{
+                            width: calc(100% / 12 * 6);
+                            h5{
+                                font-family: 'ptr';
+                                font-size: #{'min(18px,1.8em)'};
+                                color: #666;
+                                line-height: $lh;
+                            }
+                            h3{
+                                font-family: 'ptsb';
+                                font-size: #{'min(36px,3.6em)'};
+                                color: #333;
+                                line-height: $lh;
+                            }
+                            p{
+                                font-family: 'ptr';
+                                font-size: #{'min(18px,1.8em)'};
+                                color: #666;
+                                line-height: #{'min(20px,0.5rem)'};
+                                height: $lh2;
+                                margin-top: #{'min(20px,0.5rem)'};
+                            }
+                            .btn{
+                                font-family: 'ptr';
+                                font-size: #{'min(18px,1.8em)'};
+                                color: #fff;
+                                line-height: $lh;
+                                width: calc(100% / 5 * 1.6);
+                                background-color: #3e5807;
+                                text-align: center;
+                                margin-top: #{'min(20px,0.5rem)'};
+                                cursor: pointer;
+                            }
+                            &::after{
+                                content: '';
+                                display: block;
+                                margin-top: #{'min(100px,2.5rem)'};
+                                width: calc((100vw - 1080px) / 2 + 100%);
+                                margin-left: calc((100vw - 1080px) / -2);
+                                height: 1px;
+                                background-color: #666;
+                            }
+                        }
+                        .image{
+                            @include bg;
+                            margin-top: #{'min(30px,0.75rem)'};
+                            width: calc(100% / 12 * 5.5);
+                            height: #{'min(300px,7.5rem)'};
+                            background-image: url('../images/index_image/cnt02_01.jpg');
+                        }
+                    }
+                }
+                .artBtm{
+                    margin-top: #{'min(80px,2rem)'};
+                    article{
+                        @include fl;
+                        .image{
+                            @include bg;
+                            width: calc(100% / 12 * 5.5);
+                            height: #{'min(386px,9.65rem)'};
+                            background-image: url('../images/index_image/cnt02_02.jpg');
+                        }
+                        .texts{
+                            width: calc(100% / 12 * 6);
+                            h5{
+                                font-family: 'ptr';
+                                font-size: #{'min(18px,1.8em)'};
+                                color: #666;
+                                line-height: $lh;
+                            }
+                            h3{
+                                font-family: 'ptsb';
+                                font-size: #{'min(36px,3.6em)'};
+                                color: #333;
+                                line-height: $lh;
+                            }
+                            p{
+                                font-family: 'ptr';
+                                font-size: #{'min(18px,1.8em)'};
+                                color: #666;
+                                line-height: #{'min(20px,0.5rem)'};
+                                height: $lh2;
+                                margin-top: #{'min(20px,0.5rem)'};
+                            }
+                            .btn{
+                                font-family: 'ptr';
+                                font-size: #{'min(18px,1.8em)'};
+                                color: #fff;
+                                line-height: $lh;
+                                width: calc(100% / 6 * 1.9);
+                                background-color: #3e5807;
+                                text-align: center;
+                                margin-top: #{'min(20px,0.5rem)'};
+                                cursor: pointer;
+                            }
+                            &::after{
+                                content: '';
+                                display: block;
+                                margin-top: #{'min(100px,2.5rem)'};
+                                width: calc((100vw - 1080px) / 2 + 100%);
+                                height: 1px;
+                                background-color: #666;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .content{
+        &.cnt03{
+            @include grid('pc');
+            margin-top: $lh2;
+            section{
+                display: flex;
+                article{
+                    width: calc(100% / 4);
+                    .image{
+                        width: calc(100% / 4 * 1.6);
+                        margin: 0 auto;
+                        @include bg;
+                        height: #{'min(100px,2.5rem)'};
+                        &.i1{
+                            background-image: url('../images/index_image/cnt03_icon01.jpg');
+                        }
+                        &.i2{
+                            background-image: url('../images/index_image/cnt03_icon02.jpg');
+                        }
+                        &.i3{
+                            background-image: url('../images/index_image/cnt03_icon03.jpg');
+                        }
+                        &.i4{
+                            background-image: url('../images/index_image/cnt03_icon04.jpg');
+                        }
+                    }
+                    .texts{
+                        h3{
+                            font-family: 'ptm';
+                            font-size: #{'min(24px,2.4em)'};
+                            color: #333;
+                            line-height: $lh;
+                            text-align: center;
+                        }
+                        h5{
+                            font-family: 'ptm';
+                            font-size: #{'min(16px,1.6em)'};
+                            color: #333;
+                            line-height: #{'min(20px,0.5rem)'};
+                            text-align: center;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+//푸터
+.ftrWrap{
+    margin-top: $lh;
+    footer{
+        @include grid('pc');
+        @include fl;
+        padding: $lh2 0;
+        .ftrLeft{
+            width: calc(100% / 12 * 6.5);
+            display: flex;
+            .logo{
+                width: calc(100% / 6.5);
+                @include bg;
+                height: $lh2;
+                background-image: url('../images/index_image/logo.png');
+            }
+            .info{
+                width: calc(100% / 6.5 * 5);
+                margin-left: $lh;
+                margin-top: #{'min(20px,0.5rem)'};
+                font-family: 'ptr';
+                font-size: #{'min(16px,1.6em)'};
+                color: #333;
+                line-height: #{'min(25px,0.6rem)'};
+                h3{
+                    span{
+                        margin-left: #{'min(20px,0.5rem)'};
+                    }
+                }
+            }
+        }
+        .ftrRight{
+            .sns{
+                @include fl;
+                justify-content: end;
+                font-family: 'xe';
+                font-size: #{'min(36px,3.6em)'};
+                color: #333;
+                line-height: $lh;
+                li{
+                    margin-left: #{'min(20px,0.5rem)'};
+                }
+            }
+            h5{
+                font-family: 'ptl';
+                font-size: #{'min(16px,1.6em)'};
+                color: #333;
+                line-height: $lh;
+            }
+        }
+    }
+}
