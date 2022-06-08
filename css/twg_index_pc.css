@@ -80,18 +80,18 @@ html body .image {
   cursor: pointer;
 }
 
-.memuBoxWrap {
+.menuBoxWrap {
   background-color: #fff;
 }
 
-.memuBoxWrap .menuBox {
+.menuBoxWrap .menuBox {
   width: 80%;
   max-width: 1080px;
   margin: 0 auto;
   line-height: min(80px,2rem);
 }
 
-.memuBoxWrap .menuBox .menu {
+.menuBoxWrap .menuBox .menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -105,7 +105,7 @@ html body .image {
   color: #333;
 }
 
-.memuBoxWrap .menuBox .menu li {
+.menuBoxWrap .menuBox .menu li {
   cursor: pointer;
 }
 

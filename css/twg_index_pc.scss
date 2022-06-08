@@ -91,8 +91,13 @@ $lh2:#{'min(80px,2rem)'};
 }
 
 //메뉴박스
-.memuBoxWrap{
+.menuBoxWrap{
     background-color: #fff;
+    height: 0;
+        transition: height 0.5s;
+    &.on{
+        height: $lh2;
+    }
     .menuBox{
         @include grid('pc');
         line-height: $lh2;
