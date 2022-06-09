@@ -93,7 +93,8 @@ $lh2:#{'min(80px,2rem)'};
 .menuBoxWrap{
     background-color: #fff;
     height: 0;
-        transition: height 0.5s;
+    transition: height 0.5s;
+    overflow: hidden;
     &.on{
         height: $lh2;
     }
@@ -121,7 +122,7 @@ $lh2:#{'min(80px,2rem)'};
         color: #333;
         text-align: center;
         h2{
-            margin-top: $lh2;
+            padding-top: $lh2;
             font-family: 'hlr';
             font-size: #{'min(48px,4.8em)'};
             line-height: #{'min(60px,1.5rem)'};

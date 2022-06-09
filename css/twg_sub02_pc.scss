@@ -90,10 +90,10 @@ $lh2:#{'min(80px,2rem)'};
 }
 
 //메뉴박스
-.menuBoxWrap{
-    background-color: #fff;
+.menuBoxWrap{    
     height: 0;
-        transition: height 0.5s;
+    transition: height 0.5s;
+    overflow: hidden;
     &.on{
         height: $lh2;
     }
