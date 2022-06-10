@@ -137,10 +137,10 @@ $lh2:#{'min(80px,2rem)'};
                             background-image: url('../images/index_image/main_1.jpg');
                         }
                         &.i2{
-                            background-image: url('../images/index_image/main_1.jpg');
+                            background-image: url('../images/index_image/main_2.jpg');
                         }
                         &.i3{
-                            background-image: url('../images/index_image/main_1.jpg');
+                            background-image: url('../images/index_image/main_3.jpg');
                         }
                     }
                     .texts{
@@ -470,14 +470,14 @@ $lh2:#{'min(80px,2rem)'};
                             @include bg;
                             &.i1{
                                 margin-top: $lh2;
-                                margin-left: 0;
+                                margin-left: -20%;
                                 width: #{'min(600px,15rem)'};
                                 height: #{'min(550px,13.75rem)'};
                                 background-image: url('../images/index_image/cnt01_fat.png');
                             }
                             &.i2{
                                 margin-top: #{'min(360px,9rem)'};
-                                margin-right: 0;
+                                margin-right: -20%;
                                 width: #{'min(560px,14rem)'};
                                 height: #{'min(550px,13.75rem)'};
                                 background-image: url('../images/index_image/cnt01_leaf.png');
@@ -572,19 +572,21 @@ $lh2:#{'min(80px,2rem)'};
                             }
                         }
                     }
-                    .image{
-                        &.i3{
-                            width: #{'min(680px,18rem)'};
-                            position: absolute;
-                            right: 0;
-                            top: 200px;
-                            @include bg;
-                            height: #{'min(440px,11rem)'};
-                            background-image: url('../images/index_image/cnt01_teacup.png');
+                    .images{
+                        .image{
+                            &.i3{
+                                width: #{'min(680px,18rem)'};
+                                position: absolute;
+                                right: -25%;
+                                top: 200px;
+                                @include bg;
+                                height: #{'min(440px,11rem)'};
+                                background-image: url('../images/index_image/cnt01_teacup.png');
+                            }
                         }
                     }
                 }
-                .artBTm{
+                .artBtm{
                     position: relative;
                     .texts{
                         @include grid('pc');
@@ -607,24 +609,26 @@ $lh2:#{'min(80px,2rem)'};
                             margin-left: $lh2;
                         }
                     }
-                    .image{
-                        position: absolute;
-                        left: 0; right: 0;
-                        margin: auto;
-                        top: #{'min(-20px,-0.5rem)'};
-                        @include fl;
-                        @include bg;
-                        height: #{'min(480px,12rem)'};
-                        &.i4{
-                            margin-left: 0;
-                            width: #{'min(690px,17.25rem)'};
-                            background-image: url('../images/index_image/cnt01_tea.png');
-                        }
-                        &.i5{
-                            margin-right: 0;
-                            margin-top: #{'min(70px,1.75rem)'};
-                            width: #{'min(380px,9.5rem)'};
-                            background-image: url('../images/index_image/cnt01_lineleaf.png');
+                    .images{
+                        .image{
+                            position: absolute;
+                            left: 0; right: 0;
+                            margin: auto;
+                            top: #{'min(-20px,-0.5rem)'};
+                            @include fl;
+                            @include bg;
+                            height: #{'min(480px,12rem)'};
+                            &.i4{
+                                margin-left: -20%;
+                                width: #{'min(690px,17.25rem)'};
+                                background-image: url('../images/index_image/cnt01_tea.png');
+                            }
+                            &.i5{
+                                margin-right: -20%;
+                                margin-top: #{'min(45px,1.13rem)'};
+                                width: #{'min(380px,9.5rem)'};
+                                background-image: url('../images/index_image/cnt01_lineleaf.png');
+                            }
                         }
                     }
                 }
